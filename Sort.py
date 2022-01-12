@@ -2,8 +2,8 @@ import time
 import random
 start_time = time.time()
 
-
-matrix = [random.randint(-100000, 100000) for i in range(5000)]
+size_matrix = 8000
+matrix = [random.randint(-100000, 100000) for i in range(size_matrix)]
 
 
 #print(matrix)
@@ -36,3 +36,15 @@ for i in range(0,len_res):
     matrix[max_index] = temp
 #print(matrix)
 print("Selection_Sort --- %s seconds ---" % (time.time() - start_time3))
+
+#Insert_Sort
+start_time4 = time.time()
+for i in range(1,len_res):
+    i = j
+    while(j>0 and matrix[j-1] > matrix[j]):
+        tmp = matrix[j-1]
+        matrix[j-1] = matrix[j]
+        matrix[j] = tmp
+        j=j-1
+#print(matrix)
+print("Insert_Sort --- %s seconds ---" % (time.time() - start_time4))
