@@ -2,14 +2,12 @@ import time
 import random
 start_time = time.time()
 
-size_matrix = 8000
+#Bubble_Sort
+size_matrix = 8
 matrix = [random.randint(-100000, 100000) for i in range(size_matrix)]
-
-
-#print(matrix)
+print(matrix)
 len_res = len(matrix)
 print(len_res)
-sum = 0
 start_time2 = time.time()
 for j in range(len_res):
     wall = len_res-j
@@ -18,10 +16,15 @@ for j in range(len_res):
            temp = matrix[i]
            matrix[i] = matrix[i + 1]
            matrix[i + 1] = temp
-    #print(matrix)
+print(matrix)
 print("Bubble_Sort --- %s seconds ---" % (time.time() - start_time2))
 
 #Selection_Sort
+size_matrix = 8
+matrix = [random.randint(-100000, 100000) for i in range(size_matrix)]
+print(matrix)
+len_res = len(matrix)
+print(len_res)
 start_time3 = time.time()
 for i in range(0,len_res):
     wall = len_res-i
@@ -34,17 +37,22 @@ for i in range(0,len_res):
     temp = matrix[wall-1]
     matrix[wall-1] = matrix[max_index]
     matrix[max_index] = temp
-#print(matrix)
+print(matrix)
 print("Selection_Sort --- %s seconds ---" % (time.time() - start_time3))
 
 #Insert_Sort
+size_matrix = 8
+matrix = [random.randint(-100000, 100000) for i in range(size_matrix)]
+print(matrix)
+len_res = len(matrix)
+print(len_res)
 start_time4 = time.time()
-for i in range(1,len_res):
-    i = j
+for top in range(1,len_res):
+    j = top
     while(j>0 and matrix[j-1] > matrix[j]):
-        tmp = matrix[j-1]
-        matrix[j-1] = matrix[j]
-        matrix[j] = tmp
+
+        matrix[j],matrix[j-1] = matrix[j-1],matrix[j]
+
         j=j-1
-#print(matrix)
+print(matrix)
 print("Insert_Sort --- %s seconds ---" % (time.time() - start_time4))
