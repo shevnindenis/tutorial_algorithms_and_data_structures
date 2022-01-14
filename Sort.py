@@ -44,3 +44,24 @@ for top in range(1,len_res):
         j=j-1
 #print(matrix)
 print("Insert_Sort --- %s seconds ---" % (time.time() - start_time4))
+
+
+
+#Shell_Sort
+matrix = [random.randint(-100000, 100000) for i in range(size_matrix)]
+#print(matrix)
+len_res = len(matrix)
+print(len_res)
+start_time5 = time.time()
+gap = len_res//2
+while gap > 0:
+    for iIndex in range(gap, len_res):
+        temp = matrix[iIndex]
+        jIndex = iIndex
+        while jIndex >= gap and matrix[jIndex - gap] > temp:
+            matrix[jIndex] = matrix[jIndex - gap]
+            jIndex -= gap
+        matrix[jIndex] = temp
+    gap //= 2
+#print(matrix)
+print("Shell_Sort --- %s seconds ---" % (time.time() - start_time5))
