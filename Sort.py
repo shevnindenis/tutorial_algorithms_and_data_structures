@@ -65,3 +65,33 @@ while gap > 0:
     gap //= 2
 #print(matrix)
 print("Shell_Sort --- %s seconds ---" % (time.time() - start_time5))
+
+
+
+
+#Merge_Sort
+matrix = [random.randint(-100000, 100000) for i in range(size_matrix)]
+#print(matrix)
+len_res = len(matrix)
+print(len_res)
+def msort(x):
+    if len(x) < 2:
+        return x
+    result = []
+    mid = int(len(x) / 2)
+    y = msort(x[:mid])
+    z = msort(x[mid:])
+    while (len(y) > 0) and (len(z) > 0):
+        if y[0] > z[0]:
+            result.append(z[0])
+            z.pop(0)
+        else:
+            result.append(y[0])
+            y.pop(0)
+    result += y
+    result += z
+    return result
+start_time6 = time.time()
+result_matrix = msort(matrix)
+#print(result_matrix)
+print("Merge_Sort --- %s seconds ---" % (time.time() - start_time6))
